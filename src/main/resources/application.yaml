@@ -1,0 +1,39 @@
+spring:
+  mvc:
+    cors:
+      allowed-origins:
+        - http://localhost:3000
+  cloud:
+    gateway:
+      routes:
+        - id:  command
+          uri: http://localhost:8081
+          predicates:
+            - Path=/command/**
+          filters:
+            - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
+        - id: query
+          uri: http://localhost:8082
+          predicates:
+            - Path=/query/**
+          filters:
+            - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
+        - id: nserver
+          uri: http://localhost:8080
+          predicates:
+            - Path=/server/**
+          filters:
+            - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
+  application:
+    name: gateway
+server:
+  port: 5000
+management.endpoint.gateway.enabled: true
+management.endpoint.health.show-details: "ALWAYS"
+management.endpoints.web.exposure.include: "*"
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: INFO
+    org.springframework.cloud.gateway: TRACE

@@ -1,0 +1,14 @@
+version: '3.8'
+
+networks:
+  mynet:
+    driver: bridge
+
+services:
+
+  edge:
+    image: ion21/gateway-service:v2
+    networks:
+      - mynet
+    ports:
+    - "5000:5000"

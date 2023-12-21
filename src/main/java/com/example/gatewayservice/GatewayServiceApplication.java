@@ -1,0 +1,47 @@
+package com.example.gatewayservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.reactive.config.CorsRegistry;
+import org.springframework.web.reactive.config.WebFluxConfigurer;
+import org.springframework.web.reactive.function.client.WebClient;
+
+@SpringBootApplication
+public class GatewayServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(GatewayServiceApplication.class, args);
+	}
+
+	@Bean
+	@LoadBalanced
+	public WebClient.Builder loadBalancedWebClientBuilder() {
+		return WebClient.builder();
+	}
+
+//	@Bean
+//	public CorsConfigurationSource corsConfigurationSource(){
+//		CorsConfiguration configuration=new CorsConfiguration();
+//		configuration.addAllowedOrigin("http://localhost:3000");
+//		configuration.addAllowedMethod("*");
+//		configuration.addAllowedHeader("*");
+//		configuration.setAllowCredentials(true);
+//		UrlBasedCorsConfigurationSource source=new UrlBasedCorsConfigurationSource();
+//		source.registerCorsConfiguration("/**",configuration);
+//		return source;
+//	}
+//
+//	@Bean
+//	public WebFluxConfigurer corsConfigurer(){
+//		return new WebFluxConfigurer() {
+//			public void addCorsMappings(CorsRegistry registry){
+//				registry.addMapping("")
+//			}
+//		}
+//	}
+}
