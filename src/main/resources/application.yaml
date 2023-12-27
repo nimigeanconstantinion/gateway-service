@@ -1,8 +1,12 @@
 spring:
   mvc:
+    dispatch-options-request: true
+  servlet:
     cors:
-      allowed-origins:
-        - http://localhost:3000
+      allow-origins: http://localhost:3000
+      allowed-methods: GET,POST,DELETE,UPDATE
+      allowedHeaders: "*"
+      allowCredentials: true
   cloud:
     gateway:
       routes:
@@ -26,6 +30,19 @@ spring:
             - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
   application:
     name: gateway
+#  servlet:
+#    cors:
+#      allowed-origins: http://localhost:3000
+#      allowed-methods: GET,POST,DELETE,UPDATE
+#      allowedHeaders: "*"
+#      allowCredentials: true
+#  mvc:
+#    messageConverters:
+#      -
+#        converter:
+#          type: org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+
+
 server:
   port: 5000
 management.endpoint.gateway.enabled: true
