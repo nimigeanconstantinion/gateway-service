@@ -1,12 +1,4 @@
 spring:
-  mvc:
-    dispatch-options-request: true
-  servlet:
-    cors:
-      allow-origins: http://localhost:3000
-      allowed-methods: GET,POST,DELETE,UPDATE
-      allowedHeaders: "*"
-      allowCredentials: true
   cloud:
     gateway:
       routes:
@@ -28,6 +20,28 @@ spring:
             - Path=/server/**
           filters:
             - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
+#      globalcors:
+#        corsConfigurations:
+#          '[/**]':
+#            allowedOrigins: "http://localhost:3000"
+#            allowedMethods:
+#              - GET
+#              - POST
+#              - PUT
+#              - DELETE
+#              - OPTIONS
+#            allowedHeaders:
+#              - Content-Type
+#              - Authorization
+#              - X-Requested-With
+#              - Accept
+#              - Origin
+#              - Access-Control-Allow-Origin
+#
+#
+#
+#
+
   application:
     name: gateway
 #  servlet:
@@ -45,6 +59,7 @@ spring:
 
 server:
   port: 5000
+
 management.endpoint.gateway.enabled: true
 management.endpoint.health.show-details: "ALWAYS"
 management.endpoints.web.exposure.include: "*"
@@ -54,3 +69,4 @@ logging:
     root: INFO
     org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: INFO
     org.springframework.cloud.gateway: TRACE
+
