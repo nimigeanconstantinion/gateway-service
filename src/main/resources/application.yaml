@@ -20,41 +20,10 @@ spring:
             - Path=/server/**
           filters:
             - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
-#      globalcors:
-#        corsConfigurations:
-#          '[/**]':
-#            allowedOrigins: "http://localhost:3000"
-#            allowedMethods:
-#              - GET
-#              - POST
-#              - PUT
-#              - DELETE
-#              - OPTIONS
-#            allowedHeaders:
-#              - Content-Type
-#              - Authorization
-#              - X-Requested-With
-#              - Accept
-#              - Origin
-#              - Access-Control-Allow-Origin
-#
-#
-#
-#
+
 
   application:
     name: gateway
-#  servlet:
-#    cors:
-#      allowed-origins: http://localhost:3000
-#      allowed-methods: GET,POST,DELETE,UPDATE
-#      allowedHeaders: "*"
-#      allowCredentials: true
-#  mvc:
-#    messageConverters:
-#      -
-#        converter:
-#          type: org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
 
 
 server:

@@ -9,7 +9,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.util.Collections;
-@Deprecated
 @Component
 public class RequestLoggingFilter extends OncePerRequestFilter {
     @Override

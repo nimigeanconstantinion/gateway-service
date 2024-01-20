@@ -26,26 +26,4 @@ public class GatewayServiceApplication {
 	public WebClient.Builder loadBalancedWebClientBuilder() {
 		return WebClient.builder();
 	}
-//asta era
-
-
-
-	@Bean
-	public CorsConfigurationSource corsConfigurationSource(){
-		CorsConfiguration configuration=new CorsConfiguration();
-		configuration.addAllowedOrigin("http://localhost:3000");
-		configuration.addAllowedHeader("*");
-		configuration.addAllowedMethod("*");
-		configuration.setAllowCredentials(true);
-		configuration.setMaxAge(3600L);
-
-		UrlBasedCorsConfigurationSource source=new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**",configuration);
-		return source;
-	}
-
-	@Bean
-	public CorsWebFilter corsFilter() {
-		return new CorsWebFilter(corsConfigurationSource());
-	}
 }
