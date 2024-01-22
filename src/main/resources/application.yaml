@@ -20,6 +20,24 @@ spring:
             - Path=/server/**
           filters:
             - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
+    globalcors:
+      corsConfigurations:
+        '[/**]': # Applies CORS configuration to all routes
+          allowedOrigins: "http://localhost:3000"
+          allowedMethods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            - OPTIONS
+          allowedHeaders:
+            - Content-Type
+            - Authorization
+            - X-Requested-With
+            - Accept
+            - Origin
+          allowCredentials: true
+          maxAge: 3600
 
 
   application:
