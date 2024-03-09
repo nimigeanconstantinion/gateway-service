@@ -23,7 +23,9 @@ spring:
     globalcors:
       corsConfigurations:
         '[/**]': # Applies CORS configuration to all routes
-          allowedOrigins: "http://localhost:3000"
+          allowedOrigins:
+            - "http://localhost:3000"
+            - "http://3.252.249.66:3000"
           allowedMethods:
             - GET
             - POST
@@ -46,6 +48,7 @@ spring:
 
 server:
   port: 5000
+  address: 0.0.0.0
 
 management.endpoint.gateway.enabled: true
 management.endpoint.health.show-details: "ALWAYS"
