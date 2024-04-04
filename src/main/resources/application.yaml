@@ -25,7 +25,7 @@ spring:
         '[/**]': # Applies CORS configuration to all routes
           allowedOrigins:
             - "http://localhost:3000"
-            - "http://3.252.249.66:3000"
+            - "http://34.247.255.42:3000"
           allowedMethods:
             - GET
             - POST
