@@ -1,5 +1,9 @@
 spring:
   cloud:
+    eureka:
+      client:
+        serviceUrl:
+          defaultZone: http://localhost:8761/eureka
     gateway:
       routes:
         - id:  command
