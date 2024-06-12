@@ -44,7 +44,7 @@ spring:
             max-age: 1800 # 30 minutes
 
 
-  application:
+application:
     name: gateway
 
 server:
