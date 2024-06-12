@@ -42,8 +42,8 @@ spring:
             max-age: 1800 # 30 minutes
 
 
-    application:
-       name: gateway
+  application:
+     name: gateway
 
 server:
   port: 5000
@@ -63,12 +63,12 @@ logging:
     org.springframework.web.cors: DEBUG
     org.springframework.cloud.gateway: DEBUG
 
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: http://discovery-service:8761/eureka
-#    fetch-registry: true
-#    register-with-eureka: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
 #
 
   #server:
