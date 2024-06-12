@@ -1,12 +1,5 @@
 spring:
-  cloud:
-    eureka:
-      client:
-        serviceUrl:
-          defaultZone: http://discovery-service:8761/eureka
-        fetch-registry: true
-        register-with-eureka: true
-        enabled: false
+
 
 
     gateway:
@@ -71,7 +64,13 @@ logging:
     org.springframework.web.cors: DEBUG
     org.springframework.cloud.gateway: DEBUG
 
-
+eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://discovery-service:8761/eureka
+      fetch-registry: true
+      register-with-eureka: true
+      enabled: false
   #server:
   #  port: 5000
   #  address: 0.0.0.0
