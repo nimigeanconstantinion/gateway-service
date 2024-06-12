@@ -1,4 +1,14 @@
 spring:
+#
+#  cloud:
+#    eureka:
+#      client:
+#        serviceUrl:
+#          defaultZone: http://discovery-service:8761/eureka
+#        fetch-registry: true
+#        register-with-eureka: true
+
+
     gateway:
       routes:
         - id:  command
@@ -42,17 +52,10 @@ spring:
 
 
     application:
-      name: gateway
+     name: gateway
 
 server:
   port: 5000
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://discovery-service:8761/eureka
-    fetch-registry: true
-    register-with-eureka: true
 
 management:
   endpoint:
