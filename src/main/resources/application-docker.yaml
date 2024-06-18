@@ -40,8 +40,7 @@ spring:
             allowed-headers: "Authorization, Content-Type, Accept"
             allow-credentials: true
             max-age: 1800 # 30 minutes
-  zipkin:
-    base-url: http://zipkin:9411
+
 
   application:
      name: gateway
@@ -57,7 +56,9 @@ management:
     web:
       exposure:
         include: "*"
-
+  tracing:
+    sampling:
+      probability: 1.0
 
 logging:
   level:
