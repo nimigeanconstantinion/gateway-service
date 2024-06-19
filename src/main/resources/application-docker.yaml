@@ -61,7 +61,7 @@ management:
       probability: 1.0
   zipkin:
     tracing:
-      endpoint: http://zipkin:9411
+      endpoint: http://zipkin:9411/zipkin
 
 logging:
   level:
