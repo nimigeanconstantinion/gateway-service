@@ -44,6 +44,9 @@ spring:
 
   application:
      name: gateway
+  zipkin:
+    tracing:
+      endpoint: http://zipkin:9411
 
 server:
   port: 5000
@@ -59,9 +62,7 @@ management:
   tracing:
     sampling:
       probability: 1.0
-  zipkin:
-    tracing:
-      endpoint: http://zipkin:9411/zipkin
+
 
 logging:
   level:
