@@ -47,6 +47,8 @@ spring:
   # zipkin
   zipkin:
     base-url: http://zipkin:9411/
+    collector:
+      host: zipkin
   sleuth:
     sampler:
       probability: 1.0
@@ -89,6 +91,7 @@ metrics:
         server:
           requests: true
 
+SPRING_ZIPKIN_BASE-URL: http://zipkin:9411
 
 #
 
