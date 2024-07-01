@@ -40,15 +40,10 @@ spring:
             allowed-headers: "Authorization, Content-Type, Accept"
             allow-credentials: true
             max-age: 1800 # 30 minutes
-
-
   application:
      name: gateway
-  # zipkin
   zipkin:
-    base-url: http://zipkin:9411/
-    collector:
-      host: zipkin
+    base-url: ${SPRING_ZIPKIN_BASE_URL:http://localhost:9411/}
   sleuth:
     sampler:
       probability: 1.0
@@ -64,9 +59,6 @@ management:
     web:
       exposure:
         include: "*"
-#  tracing:
-#    sampling:
-#      probability: 1.0
 
 
 logging:
@@ -90,36 +82,3 @@ metrics:
       http:
         server:
           requests: true
-
-SPRING_ZIPKIN_BASE-URL: http://zipkin:9411
-
-#
-
-  #server:
-  #  port: 5000
-  #  address: 0.0.0.0
-  #
-  #management.endpoint.gateway.enabled: true
-  #management.endpoint.health.show-details: "ALWAYS"
-  #management.endpoints.web.exposure.include: "*"
-  #
-  #logging:
-  #  level:
-  #    root: INFO
-  #    org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: INFO
-  #    org.springframework.cloud.gateway: TRACE
-  #
-#
-#  application:
-#    name: gateway
-#server:
-#  port: 5000
-#management.endpoint.gateway.enabled: true
-#management.endpoint.health.show-details: "ALWAYS"
-#management.endpoints.web.exposure.include: "*"
-#
-#logging:
-#  level:
-#    root: INFO
-#    org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: INFO
-#    org.springframework.cloud.gateway: TRACE
