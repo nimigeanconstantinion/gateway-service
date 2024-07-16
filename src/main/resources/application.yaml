@@ -46,11 +46,9 @@ spring:
     name: gateway
   zipkin:
     base-url: http://zipkin:9411/
-<<<<<<< HEAD
     collector:
       host: zipkin
-=======
->>>>>>> 420e42fd41793dc4db89104ee0890f3fbe3ba857
+
   sleuth:
     sampler:
       probability: 1.0
