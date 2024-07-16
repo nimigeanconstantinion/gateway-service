@@ -42,21 +42,18 @@ spring:
             allowed-headers: "Authorization, Content-Type, Accept"
             allow-credentials: true
             max-age: 1800 # 30 minutes
-
-
   application:
     name: gateway
-
-# zipkin
   zipkin:
     base-url: http://zipkin:9411/
+<<<<<<< HEAD
     collector:
       host: zipkin
+=======
+>>>>>>> 420e42fd41793dc4db89104ee0890f3fbe3ba857
   sleuth:
     sampler:
       probability: 1.0
-
-
 server:
   port: 5000
 
@@ -66,10 +63,6 @@ eureka:
       defaultZone: http://localhost:8761/eureka
     fetch-registry: true
     register-with-eureka: true
-
-
-#  zipkin:
-#    base-url: http://localhost:9411/zipkin
 
 management:
   endpoint:
@@ -91,20 +84,6 @@ logging:
   pattern:
     level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
 
-#server:
-#  port: 5000
-#  address: 0.0.0.0
-#
-#management.endpoint.gateway.enabled: true
-#management.endpoint.health.show-details: "ALWAYS"
-#management.endpoints.web.exposure.include: "*"
-#
-#logging:
-#  level:
-#    root: INFO
-#    org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: INFO
-#    org.springframework.cloud.gateway: TRACE
-#
 metrics:
   distribution:
     percentiles-histogram:
