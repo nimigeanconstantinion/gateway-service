@@ -89,6 +89,9 @@ logging:
     org.springframework.cloud.gateway: DEBUG
   pattern:
     level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
+    root: debug
+  file:
+    name: gateway-service.log
 
 metrics:
   distribution:

@@ -75,7 +75,9 @@ logging:
     org.springframework.cloud.gateway: DEBUG
   pattern:
     level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
-
+    root: debug
+  file:
+    name: command-service.log
 
 eureka:
   client:
