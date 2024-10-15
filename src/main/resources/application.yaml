@@ -55,11 +55,12 @@ spring:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: health, info, prometheus
   endpoint:
     health:
       show-details: always
-
+    prometheus:
+      enabled: true
 
 server:
   port: 5000
