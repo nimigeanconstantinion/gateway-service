@@ -17,9 +17,9 @@ spring:
         - id: nserver
           uri: http://nserver-service:8080
           predicates:
-            - Path=/server/**
+            - Path=/api/v1/server/**
           filters:
-            - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
+            - RewritePath=/api/v1/(?<segment>.*), /${segment}
         - id: ui
           uri: http://client:3000
           predicates:
