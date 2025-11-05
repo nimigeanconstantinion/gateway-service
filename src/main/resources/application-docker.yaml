@@ -37,6 +37,11 @@ spring:
           predicates:
             - Path=/@vite/**, /@react-refresh/**
 
+        - id: config
+          uri: http://localhost:3000/config
+          predicates:
+            - Path=/config/**
+  
       globalcors:
         corsConfigurations:
           '[/**]':
