@@ -38,10 +38,18 @@ spring:
             - Path=/@vite/**, /@react-refresh/**
 
         - id: config
-          uri: http://localhost:3000
+          uri: http://client:3000   # numele serviciului client în docker-compose
           predicates:
             - Path=/config/**
+          filters:
+            - StripPrefix=1
 
+        - id: config
+          uri: http://localhost:3000   # numele serviciului client în docker-compose
+          predicates:
+            - Path=/config/**
+          filters:
+            - StripPrefix=1
       globalcors:
         corsConfigurations:
           '[/**]':
