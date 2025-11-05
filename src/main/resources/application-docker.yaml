@@ -41,7 +41,7 @@ spring:
           uri: http://localhost:3000/config
           predicates:
             - Path=/config/**
-  
+
       globalcors:
         corsConfigurations:
           '[/**]':
