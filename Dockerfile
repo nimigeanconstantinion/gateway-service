@@ -1,6 +1,6 @@
 # Use the official OpenJDK base image
-FROM openjdk:17-jdk-slim
-
+#FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk-alpine
 # Metadata as described above
 LABEL maintainer="constantin.nimigean@gmail.com"
 LABEL version="1.0"
