@@ -38,7 +38,7 @@ spring:
             - Path=/@vite/**, /@react-refresh/**
 
         - id: config
-          uri: http://localhost:3000/config
+          uri: http://localhost:3000
           predicates:
             - Path=/config/**
 
