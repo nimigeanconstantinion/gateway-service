@@ -20,6 +20,7 @@ spring:
             - Path=/server/**
           filters:
             - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
+
         - id: ui-http
           uri: http://client:3000
           predicates:
@@ -44,12 +45,7 @@ spring:
           filters:
             - StripPrefix=1
 
-        - id: config
-          uri: http://localhost:3000   # numele serviciului client în docker-compose
-          predicates:
-            - Path=/config/**
-          filters:
-            - StripPrefix=1
+
       globalcors:
         corsConfigurations:
           '[/**]':
@@ -71,6 +67,7 @@ spring:
 
 server:
   port: 5000
+  address: 0.0.0.0
 
 management:
   endpoints:
