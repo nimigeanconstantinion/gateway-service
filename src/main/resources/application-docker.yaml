@@ -71,6 +71,14 @@ spring:
     sampler:
       probability: 1.0
 
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI:http://host.docker.internal:8085/realms/rsk}
+          jwk-set-uri: ${SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI:http://host.docker.internal:8085/realms/rsk}/protocol/openid-connect/certs
+
+
 server:
   port: 5000
   address: 0.0.0.0
