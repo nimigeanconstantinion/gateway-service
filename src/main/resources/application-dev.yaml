@@ -68,6 +68,11 @@ spring:
           predicates:
             - Path=/@vite/**, /@react-refresh/**
 
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8085/realms/rsk
 
       globalcors:
         corsConfigurations:
@@ -99,48 +104,48 @@ spring:
 
 server:
   port: 5000
+#
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka
+#    fetch-registry: true
+#    register-with-eureka: true
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka
-    fetch-registry: true
-    register-with-eureka: true
-
-management:
-  endpoint:
-    health:
-      show-details: ALWAYS
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-
-  tracing:
-    sampling:
-      probability: 1.0 # only for testing purpose, switch back to 0.1 for production code
-  zipkin:
-    tracing:
-      endpoint: http://localhost:9411/api/v2/spans
+#management:
+#  endpoint:
+#    health:
+#      show-details: ALWAYS
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#
+#  tracing:
+#    sampling:
+#      probability: 1.0 # only for testing purpose, switch back to 0.1 for production code
+#  zipkin:
+#    tracing:
+#      endpoint: http://localhost:9411/api/v2/spans
 
 #  tracing:
 #    sampling:
 #      probability: 1.0
 
 
-logging:
-  level:
-    org.springframework.web.cors: DEBUG
-    org.springframework.cloud.gateway: DEBUG
-  pattern:
-    level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
-    root: debug
-  file:
-    name: gateway-service.log
+#logging:
+#  level:
+#    org.springframework.web.cors: DEBUG
+#    org.springframework.cloud.gateway: DEBUG
+#  pattern:
+#    level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
+#    root: debug
+#  file:
+#    name: gateway-service.log
 
-metrics:
-  distribution:
-    percentiles-histogram:
-      http:
-        server:
-          requests: true
+#metrics:
+#  distribution:
+#    percentiles-histogram:
+#      http:
+#        server:
+#          requests: true
