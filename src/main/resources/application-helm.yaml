@@ -75,13 +75,17 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI:http://keycloak.local/realms/rsk}
-          jwk-set-uri: ${SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI:http://keycloak.local/realms/rsk}/protocol/openid-connect/certs
+          issuer-uri: ${SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI:http://keycloak:8080/realms/rsk}
+          jwk-set-uri: ${SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI:http://keycloak:8080/realms/rsk/protocol/openid-connect/certs}
 
 
 server:
   port: 5000
   address: 0.0.0.0
+
+app:
+  security:
+    expected-issuer: ${APP_SECURITY_EXPECTED_ISSUER:http://keycloak.local/realms/rsk}
 
 management:
   endpoints:

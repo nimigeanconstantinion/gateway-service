@@ -82,6 +82,9 @@ spring:
 server:
   port: 5000
   address: 0.0.0.0
+app:
+  security:
+    expected-issuer: ${APP_SECURITY_EXPECTED_ISSUER:${SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI:http://host.docker.internal:8085/realms/rsk}}
 
 management:
   endpoints:

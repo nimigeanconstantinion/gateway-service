@@ -42,6 +42,12 @@ spring:
 #            max-age: 1800 # 30 minutes
   application:
     name: gateway
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI:http://keycloak:8080/realms/rsk}
+          jwk-set-uri: ${SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI:http://keycloak:8080/realms/rsk/protocol/openid-connect/certs}
 #  zipkin:
 #    base-url: http://zipkin:9411/
 #    collector:
@@ -53,6 +59,10 @@ spring:
 
 server:
   port: 5000
+
+app:
+  security:
+    expected-issuer: ${APP_SECURITY_EXPECTED_ISSUER:${SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI:http://keycloak:8080/realms/rsk}}
 
 #management:
 #  endpoints:
