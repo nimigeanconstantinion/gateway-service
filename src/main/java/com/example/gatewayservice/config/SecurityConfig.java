@@ -76,6 +76,8 @@ public class SecurityConfig {
         NimbusReactiveJwtDecoder decoder = NimbusReactiveJwtDecoder.withJwkSetUri(jwkSetUri).build();
         OAuth2TokenValidator<Jwt> withIssuer = JwtValidators.createDefaultWithIssuer(expectedIssuer);
         System.out.println("jwkSetUri:=== " + jwkSetUri);
+        System.out.println("expectedUri:=== " + expectedIssuer);
+
         System.out.println("withIssuer:=## " + withIssuer);
 
         decoder.setJwtValidator(withIssuer);
