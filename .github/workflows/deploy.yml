@@ -2,7 +2,8 @@ name: CD - Deploy Gateway-service API
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - '**'
   workflow_dispatch:
 
 permissions:
