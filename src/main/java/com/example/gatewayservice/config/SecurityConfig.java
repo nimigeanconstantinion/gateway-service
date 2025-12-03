@@ -71,8 +71,11 @@ public class SecurityConfig {
 
     @Bean
     public ReactiveJwtDecoder reactiveJwtDecoder() {
+
+
         NimbusReactiveJwtDecoder decoder = NimbusReactiveJwtDecoder.withJwkSetUri(jwkSetUri).build();
         OAuth2TokenValidator<Jwt> withIssuer = JwtValidators.createDefaultWithIssuer(expectedIssuer);
+        System.out.println("withIssuer: " + withIssuer);
         decoder.setJwtValidator(withIssuer);
         return decoder;
     }

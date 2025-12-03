@@ -85,7 +85,7 @@ server:
 
 app:
   security:
-    expected-issuer: ${APP_SECURITY_EXPECTED_ISSUER:http://keycloak.local/realms/rsk}
+    expected-issuer: ${APP_SECURITY_EXPECTED_ISSUER:http://keycloak/realms/rsk}
 
 management:
   endpoints:

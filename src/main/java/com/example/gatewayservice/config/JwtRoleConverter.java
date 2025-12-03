@@ -22,6 +22,7 @@ public class JwtRoleConverter implements Converter<Jwt, Collection<GrantedAuthor
 
     @Override
     public Collection<GrantedAuthority> convert(Jwt jwt) {
+        System.out.println("JWT="+jwt);
         Set<GrantedAuthority> authorities = new HashSet<>();
         extractRealmRoles(jwt).forEach(role -> authorities.add(new SimpleGrantedAuthority(withRolePrefix(role))));
         extractClientRoles(jwt).forEach(role -> authorities.add(new SimpleGrantedAuthority(withScopePrefix(role))));
@@ -29,6 +30,7 @@ public class JwtRoleConverter implements Converter<Jwt, Collection<GrantedAuthor
     }
 
     private Collection<String> extractRealmRoles(Jwt jwt) {
+        System.out.println("JWT="+jwt);
         Object realmAccess = jwt.getClaim(REALM_ACCESS);
         if (!(realmAccess instanceof Map<?, ?> realm)) {
             return Set.of();
