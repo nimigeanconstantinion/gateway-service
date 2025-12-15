@@ -10,6 +10,14 @@ spring:
             - Path=/command/**
           filters:
             - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
+
+        - id:  register
+          uri: http://localhost:8088
+          predicates:
+            - Path=/auth/**
+          filters:
+            - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
+
         - id: query
           uri: http://localhost:8082
           predicates:

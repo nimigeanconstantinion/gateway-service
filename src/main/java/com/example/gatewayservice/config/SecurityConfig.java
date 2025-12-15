@@ -41,6 +41,7 @@ public class SecurityConfig {
                         // Public: swagger, health, UI, assets Vite
                         .pathMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                         .pathMatchers("/actuator/health", "/actuator/info").permitAll()
+                        .pathMatchers("/auth/**").permitAll()
                         .pathMatchers(
                                 "/ui/**",
                                 "/@vite/**",

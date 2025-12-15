@@ -14,6 +14,15 @@ spring:
             - Path=/command/**
           filters:
             - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
+
+        - id:  register
+          uri: http://register-service:8088
+          predicates:
+            - Path=/auth/**
+          filters:
+            - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
+
+
         - id: query-service
           uri: http://query-service:8082
           predicates:
