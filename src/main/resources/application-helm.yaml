@@ -2,12 +2,6 @@ spring:
   cloud:
     gateway:
       routes:
-        #        - id: keycloak-token
-        #          uri: http://keycloak:8080
-        #          predicates:
-        #            - Path=/auth/**
-        #          filters:
-        #            - StripPrefix=1
         - id:  command
           uri: http://command-service:8081
           predicates:
@@ -29,12 +23,12 @@ spring:
             - Path=/query/**
           filters:
             - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
-        - id: nserver
-          uri: http://nserver-service:8083
-          predicates:
-            - Path=/server/**
-          filters:
-            - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
+#        - id: nserver
+#          uri: http://nserver-service:8083
+#          predicates:
+#            - Path=/server/**
+#          filters:
+#            - RewritePath=/(?<segment>.*), /api/v1/$\{segment}
 
         - id: ui-http
           uri: http://client:3000
